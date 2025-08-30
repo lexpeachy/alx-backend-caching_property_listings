@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Listings</title>
+</head>
+<body>
+    <h1>Property Listings</h1>
+    
+    {% if properties %}
+        <ul>
+        {% for property in properties %}
+            <li>
+                <h3>{{ property.title }}</h3>
+                <p>{{ property.description }}</p>
+                <p><strong>Price:</strong> ${{ property.price }}</p>
+                <p><strong>Location:</strong> {{ property.location }}</p>
+                <p><strong>Created:</strong> {{ property.created_at }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No properties available.</p>
+    {% endif %}
+    
+    <p>Page generated at: {% now "Y-m-d H:i:s" %}</p>
+</body>
+</html>
